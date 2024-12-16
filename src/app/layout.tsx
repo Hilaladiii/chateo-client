@@ -4,6 +4,7 @@ import "./globals.css";
 
 const mulish = Mulish({
   subsets: ["latin"],
+  variable : "--font-mulish",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mulish.className} antialiased`}>{children}</body>
+      <body className={`${mulish.className} ${mulish.variable} antialiased`}>{children}</body>
     </html>
   );
 }
