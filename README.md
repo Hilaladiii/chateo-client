@@ -22,7 +22,7 @@ This project is a simple, yet feature-rich, chat application that allows users t
 2. **Install dependencies**:
 
    ```bash
-   cd your-repo-name
+   cd chateo-client
    npm install
    ```
 
