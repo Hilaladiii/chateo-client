@@ -1,14 +1,36 @@
 "use client";
 
 import Button from "@/commons/components/elements/Button";
-import { use, useState } from "react";
+import { emailAtConverter } from "@/commons/utils/converter";
+import { verificationService } from "@/services/user";
+import { useRouter } from "next/navigation";
+import { use, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import OTPInput from "react-otp-input";
 
 type Params = Promise<{ slug: string }>;
 
 export default function VerifyPage(props: { params: Params }) {
   const params = use(props.params);
+  const router = useRouter();
   const [otp, setOtp] = useState("");
+  useEffect(() => {
+    if (otp.length >= 4) {
+      const handleVerication = async () => {
+        const res = await verificationService({
+          email: emailAtConverter(params.slug),
+          code: Number(otp),
+        });
+        if (res.statusCode == 200) {
+          router.push("/login");
+          toast.success(res.message);
+        } else {
+          toast.error(res.message);
+        }
+      };
+      handleVerication();
+    }
+  }, [otp]);
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center px-6">
       <div>

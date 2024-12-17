@@ -10,17 +10,31 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
-import Link from "next/link";
+import { registerService } from "@/services/user";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<TRegister>({ resolver: zodResolver(registerSchema) });
 
-  const onSubmit: SubmitHandler<TRegister> = (data) => {
-    console.log(data);
+  const email = watch("email");
+
+  const onSubmit: SubmitHandler<TRegister> = async (data) => {
+    const res = await registerService(data);
+    if (res.statusCode == 400) {
+      toast.error(res.message);
+    } else {
+      toast.success(res.message, {
+        duration: 2000,
+      });
+      router.push(`/verify/${email}`);
+    }
   };
 
   return (
@@ -59,11 +73,9 @@ export default function RegisterPage() {
             errors={errors.password}
           />
         </div>
-        <Link href="/verify" className=" mt-40">
-          <Button variant="primary" fullWidth type="submit">
-            Continue
-          </Button>
-        </Link>
+        <Button variant="primary" fullWidth type="submit" className=" mt-40">
+          Continue
+        </Button>
       </form>
     </div>
   );

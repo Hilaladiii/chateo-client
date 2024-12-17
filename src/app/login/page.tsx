@@ -15,9 +15,7 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm<TLogin>({ resolver: zodResolver(loginSchema) });
 
-  const onSubmit: SubmitHandler<TLogin> = (data) => {
-    console.log(data);
-  };
+  const onSubmit: SubmitHandler<TLogin> = (data) => {};
 
   return (
     <div className="w-full flex flex-col items-center px-6 pt-5">

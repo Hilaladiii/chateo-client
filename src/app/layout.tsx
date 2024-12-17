@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const mulish = Mulish({
   subsets: ["latin"],
-  variable : "--font-mulish",
+  variable: "--font-mulish",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mulish.className} ${mulish.variable} antialiased`}>{children}</body>
+      <body className={`${mulish.className} ${mulish.variable} antialiased`}>
+        <Toaster />
+        {children}
+      </body>
     </html>
   );
 }
