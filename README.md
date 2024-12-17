@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📬 Personal Chat Application
 
-## Getting Started
+This is a **personal experimental project** where I challenge myself to build a chat application **from scratch** using **Next.js** for the frontend and **NestJS** for the backend. The project is a result of my passion for learning through hands-on experimentation, starting from the initial design phase to development and testing.
 
-First, run the development server:
+## 🚀 Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is a simple, yet feature-rich, chat application that allows users to send and receive messages in real-time. The design is heavily inspired by the [Chateo UI Kit](<https://www.figma.com/design/AM1dXNHHl5T93ku1RVKV3t/Chateo-UI-Kit---Messenger-App-(Community)?node-id=1-153&t=ZMofdcU82sADGEVg-0>) available on Figma. I found the design clean, modern, and a perfect fit for my learning goals.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: [Next.js](https://nextjs.org/) — for server-side rendering and seamless API integration.
+- **Backend**: [NestJS](https://nestjs.com/) — for creating a robust, maintainable server-side application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 How to Run the Project
 
-## Learn More
+1. **Clone the repository**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/Hilaladiii/chateo-client.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   cd your-repo-name
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Run the development server**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Access the application**:
+   Open your browser and go to `http://localhost:3000`.
