@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
+import { loginService } from "@/services/user";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const {
@@ -15,7 +17,14 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm<TLogin>({ resolver: zodResolver(loginSchema) });
 
-  const onSubmit: SubmitHandler<TLogin> = (data) => {};
+  const onSubmit: SubmitHandler<TLogin> = async (data) => {
+    const res = await loginService(data);
+    if (res.statusCode == 200) {
+      toast.success(res.message);
+    } else {
+      toast.error(res.message);
+    }
+  };
 
   return (
     <div className="w-full flex flex-col items-center px-6 pt-5">

@@ -30,7 +30,7 @@ export default function VerifyPage(props: { params: Params }) {
       };
       handleVerication();
     }
-  }, [otp]);
+  }, [otp, params.slug, router]);
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center px-6">
       <div>
