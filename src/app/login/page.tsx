@@ -9,17 +9,20 @@ import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
 import { loginService } from "@/services/user";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TLogin>({ resolver: zodResolver(loginSchema) });
 
   const onSubmit: SubmitHandler<TLogin> = async (data) => {
     const res = await loginService(data);
     if (res.statusCode == 200) {
+      router.push("/chat");
       toast.success(res.message);
     } else {
       toast.error(res.message);
@@ -58,7 +61,7 @@ export default function LoginPage() {
           />
         </div>
         <Button variant="primary" fullWidth type="submit" className="mt-52">
-          Login
+          {isSubmitting ? "Loading..." : "Login"}
         </Button>
       </form>
     </div>

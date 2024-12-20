@@ -19,7 +19,7 @@ export default function RegisterPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     watch,
   } = useForm<TRegister>({ resolver: zodResolver(registerSchema) });
 
@@ -74,7 +74,7 @@ export default function RegisterPage() {
           />
         </div>
         <Button variant="primary" fullWidth type="submit" className=" mt-40">
-          Continue
+          {isSubmitting ? "Loading..." : "Register"}
         </Button>
       </form>
     </div>

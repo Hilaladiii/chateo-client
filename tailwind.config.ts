@@ -14,6 +14,7 @@ export default {
         active: "#0F1828",
         disabled: "#ADB5BD",
         line: "#EDEDED",
+        neutralWeak: "#A4A4A4",
         brandDark: "#001A83",
         brandDefault: "#002DE3",
         brandBackground: "#D2D5F9",

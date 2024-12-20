@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost";
   className?: string;
   fullWidth?: boolean;
 }
@@ -18,7 +18,7 @@ const variants = {
 
 export default function Button({
   children,
-  variant,
+  variant = "primary",
   className,
   fullWidth = false,
   ...props
