@@ -27,7 +27,7 @@
   .metadata2 {
     @apply text-[10px] font-normal;
   }
-  .metadata1 {
+  .metadata3 {
     @apply text-[10px] font-semibold;
   }
 }
