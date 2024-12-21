@@ -1,10 +1,10 @@
 import Image from "next/image";
-import testImage from "@/assets/images/me.jpeg";
+import PlaceholderImage from "@/assets/images/placeholder.jpg";
 
-export default function Avatar() {
+export default function Avatar({ imageUrl }: { imageUrl: string }) {
   return (
     <Image
-      src={testImage.src}
+      src={imageUrl || PlaceholderImage.src}
       alt="avatar"
       width={48}
       height={48}

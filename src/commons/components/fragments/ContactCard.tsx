@@ -1,15 +1,17 @@
 import Avatar from "../elements/Avatar";
 
-export default function ContactCard() {
+interface IContactCard {
+  imageUrl: string;
+  username: string;
+  bio: string;
+}
+export default function ContactCard({ username, imageUrl, bio }: IContactCard) {
   return (
     <div className="flex flex-row gap-3 ">
-      <Avatar />
+      <Avatar imageUrl={imageUrl} />
       <div className="flex flex-col gap-1">
-        <h1 className="text-active body1">Hilal</h1>
-        <p className="text-disabled metadata1">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
-          delectus nulla quas, laboriosam eum soluta.
-        </p>
+        <h1 className="text-active body1">{username}</h1>
+        <p className="text-disabled metadata1">{bio}</p>
       </div>
     </div>
   );

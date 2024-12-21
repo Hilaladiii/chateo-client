@@ -1,11 +1,13 @@
-import InputSearch from "@/commons/components/elements/InputSearch";
-import ContactCard from "@/commons/components/fragments/ContactCard";
+import { getUserContactService } from "@/services/contact";
+import { use } from "react";
+import ListContact from "./components/ListContact";
 
 export default function ContactPage() {
+  const data = use(getUserContactService());
+  const contacts = data.data;
   return (
     <div>
-      <InputSearch className="my-4" fullWidth />
-      <ContactCard />
+      <ListContact contacts={contacts} />
     </div>
   );
 }
