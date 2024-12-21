@@ -20,14 +20,16 @@ export default function ListContact({ contacts }: { contacts: IContact[] }) {
         className="my-4"
         fullWidth
       />
-      {filteredContact.map((contact: IContact) => (
-        <ContactCard
-          key={contact.id}
-          username={contact.username}
-          imageUrl={contact.image}
-          bio={contact.bio}
-        />
-      ))}
+      <div className="flex flex-col gap-4">
+        {filteredContact.map((contact: IContact) => (
+          <ContactCard
+            key={contact.id}
+            username={contact.username}
+            imageUrl={contact.image}
+            bio={contact.bio}
+          />
+        ))}
+      </div>
     </div>
   );
 }
