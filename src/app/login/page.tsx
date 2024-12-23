@@ -2,7 +2,7 @@
 
 import Button from "@/commons/components/elements/Button";
 import Input from "@/commons/components/elements/Input";
-import { loginSchema, TLogin } from "@/commons/validator/loginValidator";
+import { loginSchema, TLogin } from "@/commons/validator/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";

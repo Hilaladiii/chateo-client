@@ -1,7 +1,7 @@
 "use server";
 
 import { FetchApp } from "@/commons/utils/fetch";
-import { TCreateConversation } from "@/commons/validator/conversationValidator";
+import { TCreateConversation } from "@/commons/validator/conversation";
 
 export async function createConversationService(data: TCreateConversation) {
   const res = await FetchApp({

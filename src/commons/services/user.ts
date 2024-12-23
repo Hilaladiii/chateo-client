@@ -1,8 +1,8 @@
 "use server";
 
-import { TLogin } from "@/commons/validator/loginValidator";
-import { TRegister } from "@/commons/validator/registerValidator";
-import { TVerification } from "@/commons/validator/verificationValidator";
+import { TLogin } from "@/commons/validator/login";
+import { TRegister } from "@/commons/validator/register";
+import { TVerification } from "@/commons/validator/verification";
 import { cookies } from "next/headers";
 
 export async function registerService(userData: TRegister) {

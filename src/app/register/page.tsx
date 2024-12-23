@@ -2,10 +2,7 @@
 
 import Button from "@/commons/components/elements/Button";
 import Input from "@/commons/components/elements/Input";
-import {
-  registerSchema,
-  TRegister,
-} from "@/commons/validator/registerValidator";
+import { registerSchema, TRegister } from "@/commons/validator/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
