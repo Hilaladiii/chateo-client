@@ -38,6 +38,7 @@ export async function loginService(data: TLogin) {
       "Content-Type": "application/json",
     },
   });
+
   const response = await res.json();
 
   if (response.statusCode == 200)

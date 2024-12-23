@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
-import { useLogin } from "@/commons/hooks/auth/useLogin";
+import { useLogin } from "@/commons/hooks/user/useLogin";
 
 export default function LoginPage() {
   const {
