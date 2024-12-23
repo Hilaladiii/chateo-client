@@ -7,31 +7,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
-import { registerService } from "@/commons/services/user";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRegister } from "@/commons/hooks/user/useRegister";
 
 export default function RegisterPage() {
-  const router = useRouter();
+  const { mutate } = useRegister();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
   } = useForm<TRegister>({ resolver: zodResolver(registerSchema) });
 
-  const email = watch("email");
-
   const onSubmit: SubmitHandler<TRegister> = async (data) => {
-    const res = await registerService(data);
-    if (res.statusCode == 400) {
-      toast.error(res.message);
-    } else {
-      toast.success(res.message, {
-        duration: 2000,
-      });
-      router.push(`/verify/${email}`);
-    }
+    mutate(data);
   };
 
   return (

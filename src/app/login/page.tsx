@@ -7,26 +7,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
-import { loginService } from "@/commons/services/user";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useLogin } from "@/commons/hooks/auth/useLogin";
 
 export default function LoginPage() {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<TLogin>({ resolver: zodResolver(loginSchema) });
-
+  const { mutate } = useLogin();
   const onSubmit: SubmitHandler<TLogin> = async (data) => {
-    const res = await loginService(data);
-    if (res.statusCode == 200) {
-      router.push("/chat");
-      toast.success(res.message);
-    } else {
-      toast.error(res.message);
-    }
+    mutate(data);
   };
 
   return (
