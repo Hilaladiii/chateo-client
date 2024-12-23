@@ -3,6 +3,7 @@
 import InputSearch from "@/commons/components/elements/InputSearch";
 import ContactCard from "@/commons/components/fragments/ContactCard";
 import ContactSkeleton from "@/commons/components/skeletons/ContactSkeleton";
+import { useStartConversation } from "@/commons/hooks/conversation/useStartConversation";
 import { IContact } from "@/commons/types/contact";
 import { useCallback, useState } from "react";
 
@@ -13,11 +14,17 @@ export default function ListContact({
   contacts: IContact[];
   isLoading: boolean;
 }) {
+  const { mutate } = useStartConversation();
   const [searchTerm, setSearchTerm] = useState("");
   const filteredContact = contacts.filter((contact) =>
     contact.username.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const handleConversation = useCallback((id: string) => {}, [contacts]);
+  const handleConversation = useCallback(
+    (id: string) => {
+      mutate({ userId: id });
+    },
+    [contacts]
+  );
   return (
     <div>
       <InputSearch
