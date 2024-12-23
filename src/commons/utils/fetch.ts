@@ -16,5 +16,9 @@ export async function FetchApp({ path, option }: IFetchApp) {
     },
     ...option,
   });
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(errorData.message);
+  }
   return await res.json();
 }

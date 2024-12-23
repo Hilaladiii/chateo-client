@@ -4,34 +4,27 @@ import InputSearch from "@/commons/components/elements/InputSearch";
 import AddContactCard from "@/commons/components/fragments/AddContactCard";
 import Modal from "@/commons/components/layouts/Modal";
 import { IContact } from "@/commons/types/contact";
-import {
-  findContactUserService,
-  saveUserContactService,
-} from "@/services/contact";
-import { useRouter } from "next/navigation";
+
+import { findContactUserService } from "@/commons/services/contact";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { useAddContact } from "@/commons/hooks/contact/useAddContact";
 
 export default function AddContact() {
-  const router = useRouter();
   const [contact, setContacts] = useState<IContact>();
   const [searchId, setSearchId] = useState<string>("");
+  const { mutate } = useAddContact();
   useEffect(() => {
     const fetchData = async () => {
       const contact = await findContactUserService(searchId);
       setContacts(contact.data);
     };
-    fetchData();
-  }, [searchId, router]);
+    if (searchId.length == 24) {
+      fetchData();
+    }
+  }, [searchId]);
 
   const handleAddToContact = async (userId: string) => {
-    const res = await saveUserContactService(userId);
-    if (res.statusCode == 200) {
-      router.back();
-      toast.success(res.message);
-    } else {
-      toast.error(res.message);
-    }
+    mutate({ id: userId });
   };
   return (
     <Modal>

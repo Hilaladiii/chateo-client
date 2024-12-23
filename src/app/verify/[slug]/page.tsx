@@ -2,7 +2,7 @@
 
 import Button from "@/commons/components/elements/Button";
 import { emailAtConverter } from "@/commons/utils/converter";
-import { verificationService } from "@/services/user";
+import { verificationService } from "@/commons/services/user";
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import toast from "react-hot-toast";

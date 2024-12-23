@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import AppShell from "@/commons/components/layouts/AppShell";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${mulish.className} ${mulish.variable} antialiased`}>
         <Toaster />
-        {children}
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Logo from "@/assets/svgs/logo.svg";
-import { registerService } from "@/services/user";
+import { registerService } from "@/commons/services/user";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
