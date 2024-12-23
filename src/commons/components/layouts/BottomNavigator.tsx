@@ -19,7 +19,7 @@ const navigations = [
   },
   {
     icon: MenuDot,
-    href: "/setting",
+    href: "/menu",
   },
 ];
 

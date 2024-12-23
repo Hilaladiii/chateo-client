@@ -5,13 +5,10 @@ import ListContact from "./components/ListContact";
 
 export default function ContactPage() {
   const { data, isLoading } = useContact();
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
-  const contact = data.data;
+  const contact = isLoading ? [] : data.data;
   return (
     <div>
-      <ListContact contacts={contact} />
+      <ListContact contacts={contact} isLoading={isLoading} />
     </div>
   );
 }
