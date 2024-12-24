@@ -1,11 +1,14 @@
-import InputSearch from "@/commons/components/elements/InputSearch";
-import ChatCard from "@/commons/components/fragments/ChatCard";
+"use client";
+
+import { useConversation } from "@/commons/hooks/conversation/useConversation";
+import ListChat from "./components/ListChat";
 
 export default function ChatPage() {
+  const { data, isLoading } = useConversation();
+  const conversations = isLoading ? [] : data.data;
   return (
-    <div>
-      <InputSearch className="my-4" fullWidth />
-      <ChatCard />
-    </div>
+    <>
+      <ListChat conversations={conversations} isLoading={isLoading} />
+    </>
   );
 }

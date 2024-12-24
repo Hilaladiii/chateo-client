@@ -41,8 +41,7 @@ export async function loginService(data: TLogin) {
 
   const response = await res.json();
 
-  if (response.statusCode == 200)
-    cookieStore.set("token", response.data, { httpOnly: true, secure: true });
+  if (response.statusCode == 200) cookieStore.set("token", response.data);
 
   return response;
 }

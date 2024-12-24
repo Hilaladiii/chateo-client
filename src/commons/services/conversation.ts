@@ -14,3 +14,14 @@ export async function createConversationService(data: TCreateConversation) {
 
   return res;
 }
+
+export async function getConversationService() {
+  const res = await FetchApp({
+    path: "conversation",
+    option: {
+      method: "GET",
+    },
+  });
+
+  return res;
+}
