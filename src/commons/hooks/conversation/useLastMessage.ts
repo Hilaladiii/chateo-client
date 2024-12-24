@@ -9,14 +9,14 @@ export function useLastMessage(conversation: IConversation) {
     const yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     if (lastMessageAt >= today) {
-      return lastMessageAt.toLocaleTimeString("en-US", {
+      return lastMessageAt.toLocaleTimeString("id-ID", {
         hour: "2-digit",
         minute: "2-digit",
       });
     } else if (lastMessageAt >= yesterday) {
       return "yesterday";
     } else {
-      return lastMessageAt.toLocaleDateString("en-US", {
+      return lastMessageAt.toLocaleDateString("id-ID", {
         day: "numeric",
         month: "short",
       });
